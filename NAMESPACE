@@ -1,0 +1,6 @@
+export("cnmlcd","create.lcd","dlcd","plcd","plot.lcd", "plotgradient","x.weight")
+import(lsei)
+importFrom("graphics", "abline", "hist", "lines", "plot", "points", "segments")
+S3method(print, lcd)
+S3method(plot, lcd)
+S3method(logLik, lcd)

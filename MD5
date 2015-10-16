@@ -1,0 +1,14 @@
+bce4853de866e9f70790f5ef7dd8cfe3 *DESCRIPTION
+52a92127e5ddce09320300f9dab9c459 *NAMESPACE
+fa4627b77b46e4dc6222c0952a07c035 *R/cnmlcd.R
+61deddd8b0204ba88f22991ed70e81b5 *data/logreturn.rda
+0e24cb10c9e5a54bf9be425c18cb17bd *data/logvolatility.rda
+eaa829bc866f42f950028497e2797530 *man/Log-concave.Rd
+b49c13c87337bcbd1832b235f932c680 *man/cnmlcd.Rd
+31bae559e055a75ee0ca393ce153130c *man/create.lcd.Rd
+50343e1a417e51601f21727ffc7a3634 *man/lcd.Rd
+fd5f109075084b6dd917c70172ca0598 *man/logreturn.Rd
+dec46f361a2bf1ca4d9f9f51c0414fe3 *man/logvolatility.Rd
+4163e782eaca85f53ff15fd36f5b0f49 *man/plot.lcd.Rd
+625d24e42a0c16b55cdf158f61d02277 *man/plotgradient.Rd
+9f99bf6a1cdc8a1a6bb3af393b3fa0db *man/x.weight.Rd
