@@ -1,49 +1,44 @@
-\name{cnmlcd}
-\alias{cnmlcd}
+\name{cnmlcd} \alias{cnmlcd}
+
 %- Also NEED an '\alias' for EACH other topic documented here.
 
-\title{
-Maximum Likelihood Estimation of a Log-concave Density Function
+\title{ Maximum Likelihood Estimation of a Log-concave Density Function
 }
 
-\description{
-The function computes the nonparametric maximum likelihood estimate
-(NPMLE) of a log-concave density from univariate observations.
+\description{ The function computes the nonparametric maximum likelihood
+estimate (NPMLE) of a log-concave density from univariate observations.
 }
 
 \usage{
-cnmlcd(x, lcd, maxit = 100, tol = 1e-07, quiet = TRUE)
+cnmlcd(x, lcd, maxit = 100, tol = 1e-06,
+       plot=c("null","density","logdensity","gradient"))
 }
 %- maybe also 'usage' for other objects documented here.
 
 \arguments{
-  \item{x}{
-    a vector storing univariate observations.
-  }
-  \item{lcd}{
-    an initial log-concave density function, which is an object of class
-    "lcd".
-  }
-  \item{maxit}{
-    maximum number of iterations.
-  }
-  \item{tol}{
-    tolerance level for stopping the algorithm. Internally, it is used
-    as the threshold on the increase of the log-likelihood after each
-    iteration.
-  }
-  \item{quiet}{
-    logical. If it is \code{FALSE}, the log-likelihood value is printed
-    and the graident curve plotted in each iteration. This is mainly
-    needed for monitoring and debugging purposes.
-  }
+
+  \item{x}{ a vector storing univariate observations.  }
+
+  \item{lcd}{ an initial log-concave density function, which is an
+    object of class "lcd".  }
+
+  \item{maxit}{ maximum number of iterations.  }
+
+  \item{tol}{ tolerance level for stopping the algorithm. Internally, it
+    is used as the threshold on the increase of the log-likelihood after
+    each iteration. }
+
+  \item{plot}{ type of a plot to be created in each iteration of the
+    algorithm. If \code{"null"}, no plot is produced. The argument is
+    mainly for monitoring purposes.}
+
 }
 
 \details{ The algorithm used to compute the NPMLE is an extension of the
   constrained Newton method of Wang (2007) for nonparametric mixture
   estimation. It guarantees to find the unique NPMLE.
 
-  The algorithm is described in Liu and Wang (2015).
+  The algorithm is described in Liu and Wang (2018).
 }
 
 \value{
@@ -58,13 +53,16 @@ cnmlcd(x, lcd, maxit = 100, tol = 1e-07, quiet = TRUE)
    is reached.}
 }
 
-\references{ Wang, Y. (2007). On the fast computation of the
-  nonparametric maximum likelihood estimate of a mixing
-  distribution. Journal of the Royal Statistical Society, Series B, 69,
-  185-198.
+\references{
 
-  Liu, Y. and Wang, Y. (2015). A Fast Algorithm for Log-concave Density
-  Estimation. In preparation.
+  Wang, Y. (2007). On the fast computation of the nonparametric maximum
+  likelihood estimate of a mixing distribution. Journal of the Royal
+  Statistical Society, Series B, 69, 185-198.
+
+  Liu, Y. and Wang, Y. (2018). A Fast Algorithm for Univariate
+  Log-concave Density Estimation. \emph{Australia & New Zealand Journal
+  of Statistics} (To appear).
+
 }
 
 \author{
@@ -77,8 +75,7 @@ cnmlcd(x, lcd, maxit = 100, tol = 1e-07, quiet = TRUE)
 \examples{
 ## Normal density
 x = rnorm(1000)
-cnmlcd(x, quiet = FALSE) # also show intermediate results
-r = cnmlcd(x)
+(r = cnmlcd(x))
 
 ## Log-likelihood values at the NPMLE
 r$ll
@@ -94,12 +91,12 @@ dlcd(-4:4, r$lcd)
 
 ## Estimation from log-return data
 data(logreturn)
-r = cnmlcd(logreturn$value)
-plot(r$lcd, logreturn$value)
-plot(r$lcd, logreturn$value, log = TRUE)
+r = cnmlcd(logreturn)
+plot(r$lcd, logreturn)
+plot(r$lcd, logreturn, log = TRUE)
 
 ## Estimation for log-volatility data
 data(logvolatility)
-r = cnmlcd(logvolatility$value)
-plot(r$lcd, logvolatility$value)
+r = cnmlcd(logvolatility)
+plot(r$lcd, logvolatility)
 }

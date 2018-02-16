@@ -6,7 +6,7 @@
 }
 
 \description{
-  Finds frequencies of uniquely observed values.
+  Finds frequencies of unique observed values.
 }
 
 \usage{
@@ -16,7 +16,7 @@ x.weight(x)
 \arguments{
   \item{x}{
     observations for which frequencies (or weights) of unique values are
-    to be found. 
+    to be found.
   }
 }
 

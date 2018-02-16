@@ -8,17 +8,13 @@
   4783 daily log-volatilities of S&P 500 from 03/01/1995 to 03/01/2014.
 }
 
-\usage{logvolatility}
+\usage{logvolatilities}
 \format{
-  A data frame with 4786 observations and a single variable \code{value}.
+  A vector of 4786 values.
 }
 
 \source{
-  Data retrieved from Yahoo Finance https://finance.yahoo.com.
-}
-\references{
-  Liu, Y. and Wang, Y. (2015). A Fast Algorithm for Log-concave Density
-  Estimaiton. In preparation.
+  Data retrieved from Yahoo Finance.
 }
 
 \seealso{ \code{\link{cnmlcd}}, \code{\link{lcd}}. }
@@ -26,9 +22,10 @@
 \examples{
 data(logvolatility)
 ## Computes and plots the log-concave density estimate
-(r = cnmlcd(logvolatility$value))
-plot(r$lcd, logvolatility$value)                 # Density
-plot(r$lcd, logvolatility$value, log=TRUE)       # Log-density
+(r = cnmlcd(logvolatility))
+plot(r$lcd, logvolatility)               # Density
+plot(r$lcd, logvolatility, log=TRUE)     # Log-density
+plotgradient(r$lcd, logvolatility)       # Gradient
 }
 
 \keyword{datasets}
